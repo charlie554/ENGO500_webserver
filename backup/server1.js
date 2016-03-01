@@ -1,8 +1,14 @@
 var http = require("http");
 var fs = require("fs");
-var path = require("path");
-var mime = require("mime");
 
+//We will send them a 404 response if page doesn't exist
+function send404Response(response){
+    response.writeHead(404, {"Content-Type": "text/plain"});
+    response.write("Error 404 - Page not found");
+    response.end();
+}
+
+//Handle their request
 function onRequest(request, response) {
 
     if( request.method == 'GET' && request.url == '/' ){
@@ -14,11 +20,8 @@ function onRequest(request, response) {
     }
 
 }
-function send404Response(response){
-    response.writeHead(404, {"Content-Type": "text/plain"});
-    response.write("Error 404 - Page not found");
-    response.end();
-}
 
 http.createServer(onRequest).listen(8888);
 console.log("Server is now running...");
+
+//For 404 - http://localhost:8888/cornbacon
