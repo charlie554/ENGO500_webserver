@@ -2,7 +2,7 @@ var http = require("http");
 var fs = require("fs");
 var path = require("path");
 var mime = require("mime");
-var port_number = server.listen(process.env.PORT || 3000);
+var port_number = process.env.PORT || 3000;
 
 function onRequest(request, response) {
 
