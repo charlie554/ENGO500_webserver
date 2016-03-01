@@ -1,46 +1,27 @@
 var http = require("http");
 var fs = require("fs");
-var path = require("path");
-var mime = require("mime");
 
-function send404(response) {
-  response.writeHead(404, {"Content-type" : "text/plain"});
-  response.write("Error 404: resource not found");
-  response.end();
+//We will send them a 404 response if page doesn't exist
+function send404Response(response){
+    response.writeHead(404, {"Content-Type": "text/plain"});
+    response.write("Error 404 - Page not found");
+    response.end();
 }
 
-function sendPage(response, filePath, fileContents) {
-  response.writeHead(200, {"Content-type" : mime.lookup(path.basename(filePath))});
-  response.end(fileContents);
-}
+//Handle their request
+function onRequest(request, response) {
 
-function serverWorking(response, absPath) {
-  fs.exists(absPath, function(exists) {
-    if (exists) {
-      fs.readFile(absPath, function(err, data) {
-        if (err) {
-          send404(response)
-        } else {
-          sendPage(response, absPath, data);
-        }
-      });
-    } else {
-      send404(response);
+    if( request.method == 'GET' && request.url == '/' ){
+        response.writeHead(200, {"Content-Type": "text/html"});
+        //Open file as readable stream, pipe stream to response object
+        fs.createReadStream("./index.html").pipe(response);
+    }else{
+        send404Response(response);
     }
-  });
+
 }
 
-var server = http.createServer(function(request, response) {
-  var filePath = false;
+http.createServer(onRequest).listen(8888);
+console.log("Server is now running...");
 
-  if (request.url == '/') {
-    filePath = "public/index.html";
-  } else {
-    filePath = "public" + request.url;
-  }
-
-  var absPath = "./" + filePath;
-  serverWorking(response, absPath);
-});
-
-var port_number = server.listen(process.env.PORT || 3000);
+//For 404 - http://localhost:8888/cornbacon
