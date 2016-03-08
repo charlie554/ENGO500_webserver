@@ -21,7 +21,6 @@ function onRequest(request, response) {
     }
 
     else if( request.url== '/css/layouts/marketing.css' ){ //req.url has the pathname, check if it conatins '.css'
-	console.log('yay');
       fs.readFile('./css/layouts/marketing.css', function (err, data) {
         if (err) console.log(err);
         response.writeHead(200, {'Content-Type': 'text/css'});
