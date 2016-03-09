@@ -1,6 +1,5 @@
 var http = require("http");
 var fs = require("fs");
-var port_number = process.env.PORT || 3000;
 
 //We will send them a 404 response if page doesn't exist
 function send404Response(response){
@@ -21,9 +20,19 @@ function onRequest(request, response) {
     }
 
     else if( request.url== '/css/layouts/marketing.css' ){ //req.url has the pathname, check if it conatins '.css'
+	console.log('yay');
       fs.readFile('./css/layouts/marketing.css', function (err, data) {
         if (err) console.log(err);
         response.writeHead(200, {'Content-Type': 'text/css'});
+        response.write(data);
+        response.end();
+      });
+    }
+
+     else if( request.url== '/img/common/file-icons.png' ){ //req.url has the pathname, check if it conatins '.css'
+      fs.readFile('./img/common/file-icons.png', function (err, data) {
+        if (err) console.log(err);
+        response.writeHead(200, {'Content-Type': 'image/png'});
         response.write(data);
         response.end();
       });
@@ -36,7 +45,7 @@ function onRequest(request, response) {
 }
 
 
-http.createServer(onRequest).listen(port_number);
+http.createServer(onRequest).listen(8888);
 console.log("Server is now running...");
 
 //For 404 - http://localhost:8888/cornbacon
