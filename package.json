@@ -1,7 +1,7 @@
 {
-  "name" : "GIScience",
+  "name" : "blog",
   "version" : "0.0.1",
-  "description" : "Our ENGO 500 project",
+  "description" : "My minimalistic blog",
   "dependencies" : {
     "mime" : "~1.2.7"
   }
