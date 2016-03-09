@@ -4,7 +4,7 @@
   "description" : "Our ENGO 500 project",
   "engines": {
     "node": "4.4.0"
-  }
+  },
   "scripts": {
     "start":"node server.js"
   },
