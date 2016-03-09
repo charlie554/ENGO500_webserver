@@ -29,14 +29,14 @@ function onRequest(request, response) {
       });
     }
 
-     else if( request.url== '/img/common/file-icons.png' ){ //req.url has the pathname, check if it conatins '.css'
+     /*else if( request.url== '/img/common/file-icons.png' ){ //req.url has the pathname, check if it conatins '.css'
       fs.readFile('./img/common/file-icons.png', function (err, data) {
         if (err) console.log(err);
         response.writeHead(200, {'Content-Type': 'image/png'});
         response.write(data);
         response.end();
       });
-    }
+    }*/
 
     else{
         send404Response(response);
