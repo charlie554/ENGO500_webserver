@@ -12,11 +12,33 @@ function send404Response(response){
 function onRequest(request, response) {
 	console.log(request.url);
 	console.log(request.url.indexOf('.html'));
+
     if( request.method == 'GET' && request.url == '/' ){
         response.writeHead(200, {"Content-Type": "text/html"});
         //Open file as readable stream, pipe stream to response object
         fs.createReadStream("./index.html").pipe(response);
-    }else{
+    }
+
+    else if( request.url== '/css/layouts/marketing.css' ){ //req.url has the pathname, check if it conatins '.css'
+	console.log('yay');
+      fs.readFile('./css/layouts/marketing.css', function (err, data) {
+        if (err) console.log(err);
+        response.writeHead(200, {'Content-Type': 'text/css'});
+        response.write(data);
+        response.end();
+      });
+    }
+
+     else if( request.url== '/img/common/file-icons.png' ){ //req.url has the pathname, check if it conatins '.png'
+      fs.readFile('./img/common/file-icons.png', function (err, data) {
+        if (err) console.log(err);
+        response.writeHead(200, {'Content-Type': 'image/png'});
+        response.write(data);
+        response.end();
+      });
+    }
+
+    else{
         send404Response(response);
     }
 
