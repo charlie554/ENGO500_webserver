@@ -55,18 +55,14 @@
     <!-- custom stylesheet -->
     <!-- <link rel="stylesheet" href="/css/base.css"> -->
 
-    
-
-    
+    <script src="data1.js" > </script>
+    //get data
+    <script>
+    var data1wifi=data1.result;
+    </script>
 
 </head>
 <body>
-
-
-
-
-
-
 
 
 
@@ -76,6 +72,8 @@
 
     </div>
 </div>
+
+
 
 <div class="splash-container">
     <div class="splash">
@@ -108,7 +106,7 @@
 
         // Engineering E Block: Geomatics Homeroom
         var Geomarker = L.marker([51.079777, -114.132488]).addTo(map);
-        Geomarker.bindPopup("<b>Geomatics Homeroom</b> <br>Wi-Fi Speed: <br>Temperature: <br>Noise Level: <br>").openPopup();
+        Geomarker.bindPopup("<b>Geomatics Homeroom</b> <br>Wi-Fi Speed: <br>Temperature: "+ String(data1wifi)+ "&deg;C <br>Noise Level: <br>").openPopup();
 
         // ICT
         var ICTmarker = L.marker([51.08017, -114.130302]).addTo(map);
@@ -202,10 +200,7 @@
             <h2 class="content-head content-head-ribbon">Our Project:</h2>
 
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor.
+                In the future, everything will be connected with sensors as an Internet of Things (IOT). IOT empowers citizens to innovate with the data collected around them by making the data easily accessible on the Internet. In this project, sensors are placed in various locations around the University of Calgary campus, and data is gathered to describe the different building environments. Focusing the data collection on Wi-Fi speed, temperature, and noise level allows users to effectively compare study spaces according to their preferences. As the data is collected in real-time, it is presented on a user-friendly website to allow students to make smart, quick decisions when selecting a study space
             </p>
         </div>
     </div>

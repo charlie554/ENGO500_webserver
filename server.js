@@ -56,6 +56,15 @@ function onRequest(request, response) {
     });
   }
 
+  else if( request.url== '/data1.js' ){ //req.url has the pathname, check if it conatins '.png'
+   fs.readFile('./data1.js', function (err, data) {
+     if (err) console.log(err);
+     response.setHeader('Content-Type', 'application/javascript');
+     response.end(data);
+     //response.end();
+   });
+ }
+
     else{
         send404Response(response);
     }
@@ -72,9 +81,10 @@ var request = require('request');
 
 function get(id,filename,place)
 {
+  console.log("Connecting to PG-API")
   // Set the headers
   var headers = {
-    'St-P-Access-Token':'78cc7eb2-9394-4675-b231-ff0a377a3674',
+    'St-P-Access-Token':'b1937bfb-c9fc-41e9-ae19-1b455f7a9443',
     'Content-Type':     'application/json'
   }
 
@@ -98,18 +108,28 @@ function get(id,filename,place)
       save.Location = place;
       console.log(save);
       var fs = require('fs');
-      fs.writeFile('./'+filename, JSON.stringify(save), function(err) {
+      fs.writeFile('./'+filename, "var data1 = ", function(err) {
+        if(err) {
+          return console.log(err);
+        }
+        console.log("variable declared");
+      });
+
+      fs.appendFile('./'+filename, JSON.stringify(save), function(err) {
         if(err) {
           return console.log(err);
         }
         console.log("The file was saved!");
       });
     }
+    else {
+      console.log("error Connecting to server");
+    }
   })
 }
 var express = require('express')
 var app = express();
 
-app.locals.tempdata = require('./temps1.json');
+//app.locals.tempdata = require('./data1.js');
 
-get('249156','temps1.json','ENE333');
+get('258944','data1.js','ENE333');
