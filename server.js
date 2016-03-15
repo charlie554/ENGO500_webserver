@@ -104,7 +104,7 @@ function get(id,filename,place)
       //**************
       var obj = JSON.parse(body);
       var len = obj.value.length;
-      var save = obj.value[len-1]
+      var save = obj.value[0]
       save.Location = place;
       console.log(save);
       var fs = require('fs');
@@ -127,9 +127,16 @@ function get(id,filename,place)
     }
   })
 }
+
+
 var express = require('express')
 var app = express();
-
+get('258944','data1.js','ENE333');
 //app.locals.tempdata = require('./data1.js');
 
-get('258944','data1.js','ENE333');
+var minutes = 5, the_interval = minutes * 60 * 1000;
+setInterval(function() {
+  get('258944','data1.js','ENE333');
+  console.log("I am doing my 5 minutes check");
+  // do your stuff here
+}, the_interval);
