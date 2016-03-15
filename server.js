@@ -87,7 +87,7 @@ function onRequest(request, response) {
 }
 
 
-http.createServer(onRequest).listen(/*process.env.PORT || 3000*/8888);
+http.createServer(onRequest).listen(process.env.PORT || 3000);
 console.log("Server is now running...");
 
 
