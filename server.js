@@ -64,7 +64,22 @@ function onRequest(request, response) {
      //response.end();
    });
  }
-
+ else if( request.url== '/data2.js' ){ //req.url has the pathname, check if it conatins '.png'
+  fs.readFile('./data2.js', function (err, data) {
+    if (err) console.log(err);
+    response.setHeader('Content-Type', 'application/javascript');
+    response.end(data);
+    //response.end();
+  });
+ }
+ else if( request.url== '/data3.js' ){ //req.url has the pathname, check if it conatins '.png'
+  fs.readFile('./data3.js', function (err, data) {
+    if (err) console.log(err);
+    response.setHeader('Content-Type', 'application/javascript');
+    response.end(data);
+    //response.end();
+  });
+ }
     else{
         send404Response(response);
     }
@@ -72,7 +87,7 @@ function onRequest(request, response) {
 }
 
 
-http.createServer(onRequest).listen(process.env.PORT || 3000);
+http.createServer(onRequest).listen(/*process.env.PORT || 3000*/8888);
 console.log("Server is now running...");
 
 
@@ -108,14 +123,7 @@ function get(id,filename,place)
       save.Location = place;
       console.log(save);
       var fs = require('fs');
-      fs.writeFile('./'+filename, "var data1 = ", function(err) {
-        if(err) {
-          return console.log(err);
-        }
-        console.log("variable declared");
-      });
-
-      fs.appendFile('./'+filename, JSON.stringify(save), function(err) {
+      fs.appendFile('./'+filename,JSON.stringify(save), function(err) {
         if(err) {
           return console.log(err);
         }
@@ -127,16 +135,85 @@ function get(id,filename,place)
     }
   })
 }
+//-------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------
+//Temperatures
+fs.writeFile('./data1.js', "var data1 = ", function(err) {
+  if(err) {
+    return console.log(err);
+  }
+  console.log("variable declared");
+});
+get('258944','data1.js','ENE333');
 
+//-------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------
+//Download Speeds
+fs.writeFile('./data2.js', "var data2 = ", function(err) {
+  if(err) {
+    return console.log(err);
+  }
+  console.log("variable declared");
+});
+get('259343','data2.js','ENE333');
+
+//-------------------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------------------------
+//Upload Speeds
+fs.writeFile('./data3.js', "var data3 = ", function(err) {
+  if(err) {
+    return console.log(err);
+  }
+  console.log("variable declared");
+});
+get('259349','data3.js','ENE333');
 
 var express = require('express')
 var app = express();
-get('258944','data1.js','ENE333');
 //app.locals.tempdata = require('./data1.js');
 
+
+
+//----------------------------------------------------------------
+//dirty loop
 var minutes = 5, the_interval = minutes * 60 * 1000;
 setInterval(function() {
+  //Temperatures
+  fs.writeFile('./data1.js', "var data1 = ", function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log("variable declared");
+  });
   get('258944','data1.js','ENE333');
+
+  //-------------------------------------------------------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------------------------------------------------------
+  //Download Speeds
+  fs.writeFile('./data2.js', "var data2 = ", function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log("variable declared");
+  });
+  get('259343','data2.js','ENE333');
+
+  //-------------------------------------------------------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------------------------------------------------------
+  //Upload Speeds
+  fs.writeFile('./data3.js', "var data3 = ", function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log("variable declared");
+  });
+  get('259349','data3.js','ENE333');
+
+  var express = require('express')
+  var app = express();
   console.log("I am doing my 5 minutes check");
   // do your stuff here
 }, the_interval);
