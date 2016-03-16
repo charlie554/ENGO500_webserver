@@ -8,6 +8,7 @@ function send404Response(response){
     response.end();
 }
 
+//begin brute force responses
 //Handle their request
 function onRequest(request, response) {
 	console.log(request.url);
@@ -56,6 +57,18 @@ function onRequest(request, response) {
     });
   }
 
+  else if( request.url== '/img/common/geo.png' ){ //req.url has the pathname, check if it conatins '.png'
+   fs.readFile('./img/common/geo.png', function (err, data) {
+     if (err) console.log(err);
+     response.writeHead(200, {'Content-Type': 'image/png'});
+     response.write(data);
+     response.end();
+   });
+ }
+
+
+  ///img/common/geo.png
+
   else if( request.url== '/data1.js' ){ //req.url has the pathname, check if it conatins '.png'
    fs.readFile('./data1.js', function (err, data) {
      if (err) console.log(err);
@@ -64,6 +77,7 @@ function onRequest(request, response) {
      //response.end();
    });
  }
+
  else if( request.url== '/data2.js' ){ //req.url has the pathname, check if it conatins '.png'
   fs.readFile('./data2.js', function (err, data) {
     if (err) console.log(err);
@@ -80,17 +94,19 @@ function onRequest(request, response) {
     //response.end();
   });
  }
+
     else{
         send404Response(response);
     }
 
 }
+//end brute force responses
 
-
+//running server, 8888 if runnin on personal computer, process.env.PORT || 3000 for heroku
 http.createServer(onRequest).listen(process.env.PORT || 3000);
 console.log("Server is now running...");
 
-
+//get gets stuff from pg-sensorthings given stream id
 //---------------------
 var request = require('request');
 
@@ -139,6 +155,7 @@ function get(id,filename,place)
 //-------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------
+//BEGIN FILTHY SECTION
 //-------------------------------------------------------------------------------------------------------------------------------
 //Temperatures
 fs.writeFile('./data1.js', "var data1 = ", function(err) {
@@ -217,3 +234,10 @@ setInterval(function() {
   console.log("I am doing my 5 minutes check");
   // do your stuff here
 }, the_interval);
+
+//END DIRTY LOOP
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//END FILTHY SECTION
