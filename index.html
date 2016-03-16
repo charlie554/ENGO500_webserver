@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A layout example that shows off a responsive product landing page.">
 
-    <title>Landing Page &ndash; Layout Examples &ndash; Pure</title>
-
-
+    <title>  Smart Cities for Smart Citizens</title>
 
 
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
-<link rel="shortcut icon" href="http://www.iconj.com/ico/q/h/qhqb3qvdp9.ico" type="image/x-icon" />
-
+//favicon
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://www.iconj.com/ico/5/l/5lp2jq0gpy.ico" type="image/x-icon" />
 <!--[if lte IE 8]>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
@@ -56,21 +56,21 @@
     <!-- <link rel="stylesheet" href="/css/base.css"> -->
 
     <script src="data1.js" > </script>
-    //get data
+    //get temperature data
     <script>
-    var data1wifi=data1.result;
+    var temp=data1.result;
     </script>
 
     <script src="data2.js" > </script>
-    //get data
+    //get download speed data
     <script>
-    var data2wifi=data2.result;
+    var dn=data2.result;
     </script>
 
     <script src="data3.js" > </script>
-    //get data
+    //get upload speed data
     <script>
-    var data3wifi=data3.result;
+    var up=data3.result;
     </script>
 </head>
 <body>
@@ -117,7 +117,7 @@
 
         // Engineering E Block: Geomatics Homeroom
         var Geomarker = L.marker([51.079777, -114.132488]).addTo(map);
-        Geomarker.bindPopup("<b>Geomatics Homeroom</b> <br>Download Speed: "+ String(data2wifi)+ "<br>Upload Speed: "+ String(data3wifi)+ " <br>Temperature: "+ String(data1wifi)+ "&deg;C <br>Noise Level: <br>").openPopup();
+        Geomarker.bindPopup("<b>Geomatics Homeroom</b> <br>Download Speed: "+ String(dn)+ "<br>Upload Speed: "+ String(up)+ "<br>Temperature: "+ String(temp)+ "&deg;C <br>Noise Level: <br>").openPopup();
 
         // ICT
         var ICTmarker = L.marker([51.08017, -114.130302]).addTo(map);
@@ -216,49 +216,31 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="ribbon2 l-box-lrg pure-g">
 
-        <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
+            <div class="l-box-lrg is-center pure-u-1 pure-u-lg-3-5">
+                <h3>Contact Us <i class="fa fa-paper-plane-o"></i></h3>
 
-                        <label for="name">Your Name</label>
-                        <input id="name" type="text" placeholder="Your Name">
-
-
-                        <label for="email">Your Email</label>
-                        <input id="email" type="email" placeholder="Your Email">
-
-                        <label for="message">Your Message</label>
-                        <input id="text" type="text" placeholder="Your Message">
-
-                        <button type="submit" class="pure-button">Send</button>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Contact Us <i class="fa fa-paper-plane-o"></i></h4>
-                <p>
-                    We would love to hear from you! <br> </p>
-
-                <h4> Check out our blog for more information on this project: </h4>
-                <h4> <a href="http://serioushere.tumblr.com/"> <i class="fa fa-tumblr-square"> </i> serioushere.tumblr </a> </h4>
+                <h4> Visit our blog for more up-to-date information on our progress. We would be happy to answer any questions, and would gladly recieve comments and feedback. </h4>
+                <h3> <a href="http://serioushere.tumblr.com/"> <i class="fa fa-tumblr-square"> </i> serioushere.tumblr </a> </h3>
                 <h4> This project was developed by 4th Year Geomatics Engineering students from the University of Calgary. </h4>
 
-                <img class="pure-img-responsive" alt="File Icons" width="100" src="img/common/uofc.jpg">
+
+            </div>
+            <div class="l-box-lrg is-center pure-u-1 pure-u-lg-2-5">
+            <img class="pure-img-responsive" alt="File Icons" width="175" src="img/common/uofc.jpg">
+            <img class="pure-img-responsive" alt="File Icons" width="185" src="img/common/geo.png">
             </div>
 
-        </div>
-        <div class="footernew">
-            <p> This website was created with <a href="http://purecss.io/"> Pure CSS Layouts </a>
-            <br> <a target="_blank" href="https://github.com/yahoo/pure-site/blob/master/LICENSE.md"> License </a>
-            </p>
+    </div>
+    <div class="ribbon2 l-box-lrg pure-g">
+        <div class="l-box is-center pure-u-1-1">
+                    <p> This website was created with <a href="http://purecss.io/"> Pure CSS Layouts. </a> See the license
+                    <a target="_blank" href="https://github.com/yahoo/pure-site/blob/master/LICENSE.md"> here</a>
+                    &copy; 2016 Lawrance, Chung, Hartman, Chong
+                    </p>
         </div>
     </div>
-
-
 
 </div>
 
