@@ -136,7 +136,7 @@ function get(id,filename,place)
       var obj = JSON.parse(body);
       var len = obj.value.length;
       var save = obj.value[0]
-      save.Location = place;
+      //save.Location = place;
       console.log(save);
       var fs = require('fs');
       fs.appendFile('./'+filename,JSON.stringify(save), function(err) {
