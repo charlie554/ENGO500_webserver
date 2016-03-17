@@ -1,1 +1,0 @@
-var data1 = undefined
