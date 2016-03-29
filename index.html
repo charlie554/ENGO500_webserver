@@ -55,37 +55,37 @@
     <!-- custom stylesheet -->
     <!-- <link rel="stylesheet" href="/css/base.css"> -->
 
-    <script src="data1.js" > 
+    <script src="data1.js" >
     //get temperature data </script>
     <script>
     var temp=data1;
     </script>
 
-    <script src="data2.js" > 
+    <script src="data2.js" >
     //get download speed data </script>
     <script>
     var dn=data2;
     </script>
 
-    <script src="data3.js" > 
+    <script src="data3.js" >
     //get upload speed data </script>
     <script>
     var up=data3;
     </script>
 
-    <script src="data4.js" > 
+    <script src="data4.js" >
      //get noise level </script>
     <script>
     var nl=data4;
     </script>
 
-    <script src="data5.js" > 
+    <script src="data5.js" >
     //get dust </script>
     <script>
     var dst=data5;
     </script>
 
-    <script src="sort.js" > //sorting file </script> 
+    <script src="sort.js" > //sorting file </script>
 </head>
 <body>
 
@@ -123,27 +123,27 @@
 
         // Pi #1: Engineering E Block: Geomatics Homeroom
         var Geomarker = L.marker([51.079777, -114.132488]).addTo(map);
-        Geomarker.bindPopup("<b>Microlab</b> <br>Download Speed: "+ dn[0,0]+" Mbps"+ "<br>Upload Speed: "+ up[0][0]+" Mbps"+ "<br>Temperature: "+ temp[0][0] + "&deg;C <br>Noise Level: "+ nl[0][0]+ "<br>Dust: "+ dst[0][0]+" mg/m<sup>3</sup>").openPopup();
+        Geomarker.bindPopup("<b>Microlab</b> <br>Download Speed: "+ dn[0][0]+" Mbps"+ "<br>Upload Speed: "+ up[0][0]+" Mbps"+ "<br>Temperature: "+ temp[0][0] + "&deg;C <br>Noise Level: "+ nl[0][0]+ "<br>Dust: "+ dst[0][0]+" mg/m<sup>3</sup>").openPopup();
 
          // Pi #2: Engineering C Block: ENGG C Lounge
         var ENCmarker = L.marker([51.080505, -114.132578]).addTo(map);
-        ENCmarker.bindPopup("<b>ENGG C Lounge</b> <br>Download Speed: "+ dn[1,0]+" Mbps"+ "<br>Upload Speed: "+ up[1][0]+" Mbps"+ "<br>Temperature: "+ temp[1][0] + "&deg;C <br>Noise Level: "+ nl[1][0]+ "<br>Dust: "+ dst[1][0]+" mg/m<sup>3</sup>").openPopup();
+        ENCmarker.bindPopup("<b>ENGG C Lounge</b> <br>Download Speed: "+ dn[1][0]+" Mbps"+ "<br>Upload Speed: "+ up[1][0]+" Mbps"+ "<br>Temperature: "+ temp[1][0] + "&deg;C <br>Noise Level: "+ nl[1][0]+ "<br>Dust: "+ dst[1][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #3: Taylor Family Digital Library
         var TFDL1marker = L.marker([51.077475, -114.129836]).addTo(map);
-        TFDL1marker.bindPopup("<b>TFDL 1st Floor</b> <br>Download Speed: "+ dn[2,0]+" Mbps"+ "<br>Upload Speed: "+ up[2][0]+" Mbps"+ "<br>Temperature: "+ temp[2][0] + "&deg;C <br>Noise Level: "+ nl[2][0]+ "<br>Dust: "+ dst[2][0]+" mg/m<sup>3</sup>").openPopup();
+        TFDL1marker.bindPopup("<b>TFDL 1st Floor</b> <br>Download Speed: "+ dn[2][0]+" Mbps"+ "<br>Upload Speed: "+ up[2][0]+" Mbps"+ "<br>Temperature: "+ temp[2][0] + "&deg;C <br>Noise Level: "+ nl[2][0]+ "<br>Dust: "+ dst[2][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #4: Taylor Family Digital Library
         var TFDL3marker = L.marker([51.077580, -114.129963]).addTo(map);
-        TFDL3marker.bindPopup("<b>TFDL 3rd Floor</b> <br>Download Speed: "+ dn[3,0]+" Mbps"+ "<br>Upload Speed: "+ up[3][0]+" Mbps"+ "<br>Temperature: "+ temp[3][0] + "&deg;C <br>Noise Level: "+ nl[3][0]+ "<br>Dust: "+ dst[3][0]+" mg/m<sup>3</sup>").openPopup();
+        TFDL3marker.bindPopup("<b>TFDL 3rd Floor</b> <br>Download Speed: "+ dn[3][0]+" Mbps"+ "<br>Upload Speed: "+ up[3][0]+" Mbps"+ "<br>Temperature: "+ temp[3][0] + "&deg;C <br>Noise Level: "+ nl[3][0]+ "<br>Dust: "+ dst[3][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #5: Taylor Family Digital Library
         var TFDL6marker = L.marker([51.077391, -114.129782]).addTo(map);
-        TFDL6marker.bindPopup("<b>TFDL 6th Floor</b> <br>Download Speed: "+ dn[4,0]+" Mbps"+ "<br>Upload Speed: "+ up[4][0]+" Mbps"+ "<br>Temperature: "+ temp[4][0] + "&deg;C <br>Noise Level: "+ nl[4][0]+ "<br>Dust: "+ dst[4][0]+" mg/m<sup>3</sup>").openPopup();
+        TFDL6marker.bindPopup("<b>TFDL 6th Floor</b> <br>Download Speed: "+ dn[4][0]+" Mbps"+ "<br>Upload Speed: "+ up[4][0]+" Mbps"+ "<br>Temperature: "+ temp[4][0] + "&deg;C <br>Noise Level: "+ nl[4][0]+ "<br>Dust: "+ dst[4][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #6: CCIT - Steve's Office
         var CCITmarker = L.marker([51.080566, -114.133694]).addTo(map);
-        CCITmarker.bindPopup("<b>CCIT: Steve's Office</b> <br>Download Speed: "+ dn[5,0]+" Mbps"+ "<br>Upload Speed: "+ up[5][0]+" Mbps"+ "<br>Temperature: "+ temp[5][0] + "&deg;C <br>Noise Level: "+ nl[5][0]+ "<br>Dust: "+ dst[5][0]+" mg/m<sup>3</sup>").openPopup();
+        CCITmarker.bindPopup("<b>CCIT: Steve's Office</b> <br>Download Speed: "+ dn[5][0]+" Mbps"+ "<br>Upload Speed: "+ up[5][0]+" Mbps"+ "<br>Temperature: "+ temp[5][0] + "&deg;C <br>Noise Level: "+ nl[5][0]+ "<br>Dust: "+ dst[5][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #7: Education Block Lounge/Cafe
         var EDUmarker = L.marker([51.076692, -114.126661]).addTo(map);
@@ -151,23 +151,23 @@
 
         // Pi #8: McKimmie Tower
         var MKTmarker = L.marker([51.077457, -114.128858]).addTo(map);
-        MKTmarker.bindPopup("<b>McKimmie Tower</b> <br>Download Speed: "+ dn[7,0]+" Mbps"+ "<br>Upload Speed: "+ up[7][0]+" Mbps"+ "<br>Temperature: "+ temp[7][0] + "&deg;C <br>Noise Level: "+ nl[7][0]+ "<br>Dust: "+ dst[7][0]+" mg/m<sup>3</sup>").openPopup();
+        MKTmarker.bindPopup("<b>McKimmie Tower</b> <br>Download Speed: "+ dn[7][0]+" Mbps"+ "<br>Upload Speed: "+ up[7][0]+" Mbps"+ "<br>Temperature: "+ temp[7][0] + "&deg;C <br>Noise Level: "+ nl[7][0]+ "<br>Dust: "+ dst[7][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #9: Scurfield
         var SCUmarker = L.marker([51.077385, -114.124836]).addTo(map);
-        SCUmarker.bindPopup("<b>Scurfield Hall</b> <br>Download Speed: "+ dn[8,0]+" Mbps"+ "<br>Upload Speed: "+ up[8][0]+" Mbps"+ "<br>Temperature: "+ temp[8][0] + "&deg;C <br>Noise Level: "+ nl[8][0]+ "<br>Dust: "+ dst[8][0]+" mg/m<sup>3</sup>").openPopup();
+        SCUmarker.bindPopup("<b>Scurfield Hall</b> <br>Download Speed: "+ dn[8][0]+" Mbps"+ "<br>Upload Speed: "+ up[8][0]+" Mbps"+ "<br>Temperature: "+ temp[8][0] + "&deg;C <br>Noise Level: "+ nl[8][0]+ "<br>Dust: "+ dst[8][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #10: Mac Hall
         var MHmarker = L.marker([51.078474, -114.13089]).addTo(map);
-        MHmarker.bindPopup("<b>Mac Hall</b> <br>Download Speed: "+ dn[9,0]+" Mbps"+ "<br>Upload Speed: "+ up[9][0]+" Mbps"+ "<br>Temperature: "+ temp[9][0] + "&deg;C <br>Noise Level: "+ nl[9][0]+ "<br>Dust: "+ dst[9][0]+" mg/m<sup>3</sup>").openPopup();
+        MHmarker.bindPopup("<b>Mac Hall</b> <br>Download Speed: "+ dn[9][0]+" Mbps"+ "<br>Upload Speed: "+ up[9][0]+" Mbps"+ "<br>Temperature: "+ temp[9][0] + "&deg;C <br>Noise Level: "+ nl[9][0]+ "<br>Dust: "+ dst[9][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #11: Science Theatres
         var STmarker = L.marker([51.079697, -114.126973]).addTo(map);
-        STmarker.bindPopup("<b>Science Theatres</b> <br>Download Speed: "+ dn[10,0]+" Mbps"+ "<br>Upload Speed: "+ up[10][0]+" Mbps"+ "<br>Temperature: "+ temp[10][0] + "&deg;C <br>Noise Level: "+ nl[10][0]+ "<br>Dust: "+ dst[10][0]+" mg/m<sup>3</sup>").openPopup();
+        STmarker.bindPopup("<b>Science Theatres</b> <br>Download Speed: "+ dn[10][0]+" Mbps"+ "<br>Upload Speed: "+ up[10][0]+" Mbps"+ "<br>Temperature: "+ temp[10][0] + "&deg;C <br>Noise Level: "+ nl[10][0]+ "<br>Dust: "+ dst[10][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #12: ICT
         var ICTmarker = L.marker([51.08017, -114.130302]).addTo(map);
-        ICTmarker.bindPopup("<b>ICT</b> <br>Download Speed: "+ dn[11,0]+" Mbps"+ "<br>Upload Speed: "+ up[11][0]+" Mbps"+ "<br>Temperature: "+ temp[11][0] + "&deg;C <br>Noise Level: "+ nl[11][0]+ "<br>Dust: "+ dst[11][0]+" mg/m<sup>3</sup>").openPopup();
+        ICTmarker.bindPopup("<b>ICT</b> <br>Download Speed: "+ dn[11][0]+" Mbps"+ "<br>Upload Speed: "+ up[11][0]+" Mbps"+ "<br>Temperature: "+ temp[11][0] + "&deg;C <br>Noise Level: "+ nl[11][0]+ "<br>Dust: "+ dst[11][0]+" mg/m<sup>3</sup>").openPopup();
 
         // Pi #13: Kinesiology B
         var KNBmarker = L.marker([51.077212, -114.132985]).addTo(map);
@@ -237,7 +237,7 @@
 
             <h2 class="content-head2 content-head-ribbon">Our Project:</h2>
             <p>
-                In the future, everything will be connected with sensors as an Internet of Things (IOT). IOT empowers citizens to innovate with the data collected around them by making the data easily accessible on the Internet. In this project, sensors are placed in various locations around the University of Calgary campus, and data is gathered to describe the different building environments. Focusing the data collection on Wi-Fi speed, temperature, and noise level allows users to effectively compare study spaces according to their preferences. As the data is collected in real-time, it is presented on a user-friendly website to allow students to make smart, quick decisions when selecting a study space. 
+                In the future, everything will be connected with sensors as an Internet of Things (IOT). IOT empowers citizens to innovate with the data collected around them by making the data easily accessible on the Internet. In this project, sensors are placed in various locations around the University of Calgary campus, and data is gathered to describe the different building environments. Focusing the data collection on Wi-Fi speed, temperature, and noise level allows users to effectively compare study spaces according to their preferences. As the data is collected in real-time, it is presented on a user-friendly website to allow students to make smart, quick decisions when selecting a study space.
             </p>
 
         </div>
