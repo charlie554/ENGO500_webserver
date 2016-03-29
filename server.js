@@ -131,25 +131,25 @@ console.log("Server is now running...");
 var request = require('request');
 var fs = require('fs');
 
-function get(id,filename,index)
+function get(id,filename,index,callback)
 {
   console.log("Connecting to PG-API")
   // Set the headers
   var headers = {
-    'St-P-Access-Token':'b1937bfb-c9fc-41e9-ae19-1b455f7a9443',
     'Content-Type':     'application/json'
   }
 
   // Configure the request
   var options = {
-    url: 'http://pg-api.sensorup.com/st-playground/proxy/v1.0/Datastreams('+id+')/Observations',
+    url: 'http://chashuhotpot.sensorup.com/OGCSensorThings/v1.0/Datastreams('+id+')/Observations',
     method: 'GET',
     headers: headers,
-    qs: {'key1': 'xxx', 'key2': 'yyy'}
+  //  qs: {'key1': 'xxx', 'key2': 'yyy'}
   }
 
   // Start the request
-  request(options, function (error, response, body) {
+  request(options, function (error, response, body)
+  {
     if (!error && response.statusCode == 200)
     {
       // Print out the response body
@@ -168,6 +168,7 @@ function get(id,filename,index)
           }
           console.log(save.result);
         });
+        callback()
       }
       else
       {
@@ -177,6 +178,7 @@ function get(id,filename,index)
             return console.log(err);
           }
         });
+        callback()
       }
     }
     else
@@ -187,10 +189,14 @@ function get(id,filename,index)
         {
           return console.log(err);
         }
+        callback()
       });
     }
   })
 }
+var futures = require('futures');
+var sequence = futures.sequence();
+var async = require('async')
 //-------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------------------------
@@ -198,116 +204,132 @@ function get(id,filename,index)
 //BEGIN FILTHY SECTION
 function dlData()
 {
+//callback hell
   //-------------------------------------------------------------------------------------------------------------------------------
+  async.series([
   //Temperatures
-  fs.writeFile('./data1.js', "var data1 = []\n", function(err) {
+  function(callback){fs.writeFile('./data1.js', "var data1 = []\n", function(err) {
     if(err) {
       return console.log(err);
     }
+    callback();
     console.log("variable declared");
-  });
-  get('258944','data1','0');
-  get('263929','data1','1')
-  get('263935','data1','2')
-  get('263941','data1','3')
-  get('263947','data1','4')
-  get('263953','data1','5')
-  get('263959','data1','6')
-  get('263965','data1','7')
-  get('263971','data1','8')
-  get('263977','data1','9')
-  get('263983','data1','10')
-  get('263989','data1','11')
-  get('264007','data1','12')
+  })},
+    function(callback){get('1701160','data1','0',callback)},
+    function(callback){get('1701161','data1','1',callback)},
+    function(callback){get('1701162','data1','2',callback)},
+    function(callback){get('1701164','data1','3',callback)},
+    function(callback){get('1701165','data1','4',callback)},
+    function(callback){get('1701167','data1','5',callback)},
+    function(callback){get('1701168','data1','6',callback)},
+    function(callback){get('1701170','data1','7',callback)},
+    function(callback){get('1701171','data1','8',callback)},
+    function(callback){get('1701172','data1','9',callback)},
+    function(callback){get('1701174','data1','10',callback)},
+    function(callback){get('1701175','data1','11',callback)},
+    function(callback){get('1701177','data1','12',callback)},
+
+
   //-------------------------------------------------------------------------------------------------------------------------------
   //-------------------------------------------------------------------------------------------------------------------------------
   //Download Speeds
-  fs.writeFile('./data2.js', "var data2 = []\n", function(err) {
+  function(callback){fs.writeFile('./data2.js', "var data2 = []\n", function(err) {
     if(err) {
+      callback()
       return console.log(err);
     }
+    callback()
     console.log("variable declared");
-  });
-  get('259343','data2','0')
-  get('264019','data2','1')
-  get('264025','data2','2')
-  get('264031','data2','3')
-  get('264037','data2','4')
-  get('264043','data2','5')
-  get('264049','data2','6')
-  get('264055','data2','7')
-  get('264061','data2','8')
-  get('264067','data2','9')
-  get('264073','data2','10')
-  get('264079','data2','11')
-  get('264085','data2','12')
+  })},
+  function(callback){get('1701212','data2','0',callback)},
+  function(callback){get('1701213','data2','1',callback)},
+  function(callback){get('1701215','data2','2',callback)},
+  function(callback){get('1701217','data2','3',callback)},
+  function(callback){get('1701218','data2','4',callback)},
+  function(callback){get('1701219','data2','5',callback)},
+  function(callback){get('1701221','data2','6',callback)},
+  function(callback){get('1701222','data2','7',callback)},
+  function(callback){get('1701223','data2','8',callback)},
+  function(callback){get('1701225','data2','9',callback)},
+  function(callback){get('1701226','data2','10',callback)},
+  function(callback){get('1701228','data2','11',callback)},
+  function(callback){get('1701229','data2','12',callback)},
+
 
   //-------------------------------------------------------------------------------------------------------------------------------
   //-------------------------------------------------------------------------------------------------------------------------------
   //Upload Speeds
-  fs.writeFile('./data3.js', "var data3 = []\n", function(err) {
+  function(callback){fs.writeFile('./data3.js', "var data3 = []\n", function(err) {
     if(err) {
+      callback()
       return console.log(err);
     }
     console.log("variable declared");
-  });
-  get('259349','data3','0')
-  get('264109','data3','1')
-  get('264115','data3','2')
-  get('264121','data3','3')
-  get('264127','data3','4')
-  get('264133','data3','5')
-  get('264139','data3','6')
-  get('264145','data3','7')
-  get('264151','data3','8')
-  get('264157','data3','9')
-  get('264163','data3','10')
-  get('264169','data3','11')
-  get('264175','data3','12')
+    callback()
+  })},
+  function(callback){get('1701263','data3','0',callback)},
+  function(callback){get('1701265','data3','1',callback)},
+  function(callback){get('1701266','data3','2',callback)},
+  function(callback){get('1701267','data3','3',callback)},
+  function(callback){get('1701269','data3','4',callback)},
+  function(callback){get('1701270','data3','5',callback)},
+  function(callback){get('1701271','data3','6',callback)},
+  function(callback){get('1701273','data3','7',callback)},
+  function(callback){get('1701274','data3','8',callback)},
+  function(callback){get('1701275','data3','9',callback)},
+  function(callback){get('1701277','data3','10',callback)},
+  function(callback){get('1701278','data3','11',callback)},
+  function(callback){get('1701279','data3','12',callback)},
   //-------------------------------------------------------------------------------------------------------------------------------
   //-------------------------------------------------------------------------------------------------------------------------------
   //Dust
-  fs.writeFile('./data4.js', "var data4 = []\n", function(err) {
+  function(callback){fs.writeFile('./data4.js', "var data4 = []\n", function(err) {
     if(err) {
+      callback()
       return console.log(err);
     }
     console.log("variable declared");
-  });
-  get('263799','data4','0')
-  get('264295','data4','1')
-  get('264301','data4','2')
-  get('264307','data4','3')
-  get('264313','data4','4')
-  get('264319','data4','5')
-  get('264325','data4','6')
-  get('264331','data4','7')
-  get('264337','data4','8')
-  get('264343','data4','9')
-  get('264349','data4','10')
-  get('264355','data4','11')
-  get('264361','data4','12')
+    callback()
+  })},
+  function(callback){get('1701263','data4','0',callback)},
+  function(callback){get('1701265','data4','1',callback)},
+  function(callback){get('1701266','data4','2',callback)},
+  function(callback){get('1701267','data4','3',callback)},
+  function(callback){get('1701269','data4','4',callback)},
+  function(callback){get('1701270','data4','5',callback)},
+  function(callback){get('1701271','data4','6',callback)},
+  function(callback){get('1701273','data4','7',callback)},
+  function(callback){get('1701274','data4','8',callback)},
+  function(callback){get('1701275','data4','9',callback)},
+  function(callback){get('1701277','data4','10',callback)},
+  function(callback){get('1701278','data4','11',callback)},
+  function(callback){get('1701279','data4','12',callback)},
   //-------------------------------------------------------------------------------------------------------------------------------
   //-------------------------------------------------------------------------------------------------------------------------------
   //Noise
-  fs.writeFile('./data5.js', "var data5 = []\n", function(err) {
+  function(callback){fs.writeFile('./data5.js', "var data5 = []\n", function(err) {
     if(err) {
+      callback()
       return console.log(err);
     }
+    callback()
     console.log("variable declared");
-  });
-  get('263824','data5','0')
-  get('264199','data5','1')
-  get('264205','data5','2')
-  get('264211','data5','3')
-  get('264217','data5','4')
-  get('264223','data5','5')
-  get('264229','data5','6')
-  get('264240','data5','7')
-  get('264247','data5','8')
-  get('264253','data5','9')
-  get('264259','data5','10')
-  get('264265','data5','11')
-  get('264271','data5','12')
+  })},
+  function(callback){get('1701366','data5','0',callback)},
+  function(callback){get('1701367','data5','1',callback)},
+  function(callback){get('1701369','data5','2',callback)},
+  function(callback){get('1701370','data5','3',callback)},
+  function(callback){get('1701371','data5','4',callback)},
+  function(callback){get('1701373','data5','5',callback)},
+  function(callback){get('1701374','data5','6',callback)},
+  function(callback){get('1701376','data5','7',callback)},
+  function(callback){get('1701377','data5','8',callback)},
+  function(callback){get('1701378','data5','9',callback)},
+  function(callback){get('1701380','data5','10',callback)},
+  function(callback){get('1701381','data5','11',callback)},
+  function(callback){get('1701382','data5','12',callback)},
+
+]);
 }
 
 
@@ -340,16 +362,15 @@ function getData()
   console.log("Connecting to PG-API")
   // Set the headers
   var headers = {
-    'St-P-Access-Token':'b1937bfb-c9fc-41e9-ae19-1b455f7a9443',
     'Content-Type':     'application/json'
   }
 
   // Configure the request
   var options = {
-    url: 'http://pg-api.sensorup.com/st-playground/proxy/v1.0/Datastreams(258944)/Observations',
+    url: 'http://chashuhotpot.sensorup.com/OGCSensorThings/v1.0/Datastreams(1701382)/Observations',
     method: 'GET',
     headers: headers,
-    qs: {'key1': 'xxx', 'key2': 'yyy'}
+    //qs: {'key1': 'xxx', 'key2': 'yyy'}
   }
 
   // Start the request
