@@ -1,7 +1,7 @@
 var http = require("http");
 var fs = require("fs");
 var path = require('path')
-//
+
 
 //We will send them a 404 response if page doesn't exist
 function send404Response(response){
