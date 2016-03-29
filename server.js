@@ -12,13 +12,14 @@ function send404Response(response){
 
 //begin brute force responses
 //Handle their request
+
 function onRequest(request, response) {
   console.log(request.url);
-  console.log(fs.existsSync(request.url))
+  //console.log(fs.existsSync(request.url))
   //console.log(request.url.indexOf('.html'));
-  console.log(path.dirname(request.url));
-  console.log(path.basename(request.url));
-  console.log(path.extname(request.url));
+  //console.log(path.dirname(request.url));
+  //console.log(path.basename(request.url));
+  //console.log(path.extname(request.url));
 
   if( request.method == 'GET' && request.url == '/' )
   {
@@ -57,13 +58,58 @@ function onRequest(request, response) {
         response.end();
       });
     }
-    else if( path.extname(request.url)== '.js' )
+    /*else if( path.extname(request.url)== '.js' )
     {
       fs.readFile('.'+request.url, function (err, data) {
         if (err) console.log(err);
         response.setHeader('Content-Type', 'application/javascript');
         response.end(data);
       });
+    }*/
+    else if( request.url== '/data1.js' )
+    {
+     fs.readFile('./data1.js', function (err, data) {
+       if (err) console.log(err);
+       response.setHeader('Content-Type', 'application/javascript');
+       response.end(data);
+       //response.end();
+     });
+    }
+    else if( request.url== '/data2.js' )
+    {
+     fs.readFile('./data2.js', function (err, data) {
+       if (err) console.log(err);
+       response.setHeader('Content-Type', 'application/javascript');
+       response.end(data);
+       //response.end();
+     });
+    }
+    else if( request.url== '/data3.js' )
+    {
+     fs.readFile('./data3.js', function (err, data) {
+       if (err) console.log(err);
+       response.setHeader('Content-Type', 'application/javascript');
+       response.end(data);
+       //response.end();
+     });
+    }
+    else if( request.url== '/data4.js' )
+    {
+     fs.readFile('./data4.js', function (err, data) {
+       if (err) console.log(err);
+       response.setHeader('Content-Type', 'application/javascript');
+       response.end(data);
+       //response.end();
+     });
+    }
+    else if( request.url== '/data5.js' )
+    {
+     fs.readFile('./data5.js', function (err, data) {
+       if (err) console.log(err);
+       response.setHeader('Content-Type', 'application/javascript');
+       response.end(data);
+       //response.end();
+     });
     }
   }
   else
@@ -73,6 +119,8 @@ function onRequest(request, response) {
 
 }
 //end brute force responses
+
+
 
 //running server, 8888 if runnin on personal computer, process.env.PORT || 3000 for heroku
 http.createServer(onRequest).listen(process.env.PORT || 3000);

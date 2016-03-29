@@ -171,6 +171,17 @@ a.pure-button-primary {
     text-transform: uppercase;
 }
 
+.splash1 {
+    /* absolute center .splash within .splash-container */
+    /*width: 80%;
+    height: 50%;*/
+    /*margin: auto;*/
+    position: absolute;
+    top: 50px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+    text-transform: none;
+}
+
 #map
 {
   height: 180%;
@@ -220,6 +231,12 @@ a.pure-button-primary {
     margin: 2em 0 1em;
 }
 
+.content-head2 {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
 /* This is a modifier class used when the content-head is inside a ribbon */
 .content-head-ribbon {
     color: white;
@@ -239,10 +256,18 @@ a.pure-button-primary {
     color: #aaa;
 }
 
+.ribbon2 {
+    background: white;
+    
+}
 /* This is the class used for the footer */
 .   r {
     background: #111
     ;
+}
+
+.buffer {
+    padding: 10px;
 }
 
 /*
