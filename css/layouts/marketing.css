@@ -267,9 +267,22 @@ a.pure-button-primary {
 }
 
 .buffer {
-    padding: 10px;
+    padding: 0px;
 }
 
+.videoWrap{
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: auto;
+}
+.videoWrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 93%;
+    height: 93%;
+}
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
