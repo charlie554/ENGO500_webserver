@@ -283,51 +283,51 @@ function dlData()
   //-------------------------------------------------------------------------------------------------------------------------------
   //-------------------------------------------------------------------------------------------------------------------------------
   //Dust
-  function(callback){fs.writeFile('./data4.js', "var data4 = []\n", function(err) {
-    if(err) {
-      callback()
-      return console.log(err);
-    }
-    console.log("variable declared");
-    callback()
-  })},
-  function(callback){get('1701263','data4','0',callback)},
-  function(callback){get('1701265','data4','1',callback)},
-  function(callback){get('1701266','data4','2',callback)},
-  function(callback){get('1701267','data4','3',callback)},
-  function(callback){get('1701269','data4','4',callback)},
-  function(callback){get('1701270','data4','5',callback)},
-  function(callback){get('1701271','data4','6',callback)},
-  function(callback){get('1701273','data4','7',callback)},
-  function(callback){get('1701274','data4','8',callback)},
-  function(callback){get('1701275','data4','9',callback)},
-  function(callback){get('1701277','data4','10',callback)},
-  function(callback){get('1701278','data4','11',callback)},
-  function(callback){get('1701279','data4','12',callback)},
-  //-------------------------------------------------------------------------------------------------------------------------------
-  //-------------------------------------------------------------------------------------------------------------------------------
-  //Noise
   function(callback){fs.writeFile('./data5.js', "var data5 = []\n", function(err) {
     if(err) {
       callback()
       return console.log(err);
     }
+    console.log("variable declared");
+    callback()
+  })},
+  function(callback){get('1701263','data5','0',callback)},
+  function(callback){get('1701265','data5','1',callback)},
+  function(callback){get('1701266','data5','2',callback)},
+  function(callback){get('1701267','data5','3',callback)},
+  function(callback){get('1701269','data5','4',callback)},
+  function(callback){get('1701270','data5','5',callback)},
+  function(callback){get('1701271','data5','6',callback)},
+  function(callback){get('1701273','data5','7',callback)},
+  function(callback){get('1701274','data5','8',callback)},
+  function(callback){get('1701275','data5','9',callback)},
+  function(callback){get('1701277','data5','10',callback)},
+  function(callback){get('1701278','data5','11',callback)},
+  function(callback){get('1701279','data5','12',callback)},
+  //-------------------------------------------------------------------------------------------------------------------------------
+  //-------------------------------------------------------------------------------------------------------------------------------
+  //Noise
+  function(callback){fs.writeFile('./data4.js', "var data4 = []\n", function(err) {
+    if(err) {
+      callback()
+      return console.log(err);
+    }
     callback()
     console.log("variable declared");
   })},
-  function(callback){get('1701366','data5','0',callback)},
-  function(callback){get('1701367','data5','1',callback)},
-  function(callback){get('1701369','data5','2',callback)},
-  function(callback){get('1701370','data5','3',callback)},
-  function(callback){get('1701371','data5','4',callback)},
-  function(callback){get('1701373','data5','5',callback)},
-  function(callback){get('1701374','data5','6',callback)},
-  function(callback){get('1701376','data5','7',callback)},
-  function(callback){get('1701377','data5','8',callback)},
-  function(callback){get('1701378','data5','9',callback)},
-  function(callback){get('1701380','data5','10',callback)},
-  function(callback){get('1701381','data5','11',callback)},
-  function(callback){get('1701382','data5','12',callback)},
+  function(callback){get('1701366','data4','0',callback)},
+  function(callback){get('1701367','data4','1',callback)},
+  function(callback){get('1701369','data4','2',callback)},
+  function(callback){get('1701370','data4','3',callback)},
+  function(callback){get('1701371','data4','4',callback)},
+  function(callback){get('1701373','data4','5',callback)},
+  function(callback){get('1701374','data4','6',callback)},
+  function(callback){get('1701376','data4','7',callback)},
+  function(callback){get('1701377','data4','8',callback)},
+  function(callback){get('1701378','data4','9',callback)},
+  function(callback){get('1701380','data4','10',callback)},
+  function(callback){get('1701381','data4','11',callback)},
+  function(callback){get('1701382','data4','12',callback)},
 
 ]);
 }
