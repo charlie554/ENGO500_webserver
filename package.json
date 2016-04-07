@@ -1,7 +1,7 @@
 {
-  "name" : "blog",
+  "name" : "giscience",
   "version" : "0.0.1",
-  "description" : "My minimalistic blog",
+  "description" : "Our webserver for 500",
   "dependencies" : {
     "mime" : "~1.2.7"
   }
